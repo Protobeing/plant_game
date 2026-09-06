@@ -66,4 +66,14 @@ scale_amount_curve = SubResource("Curve_mff6v")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_1m1vm")
 
+[node name="button_timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="pouring" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="button_timer" to="." method="_on_button_timer_timeout"]
+[connection signal="timeout" from="pouring" to="." method="_on_pouring_timeout"]
